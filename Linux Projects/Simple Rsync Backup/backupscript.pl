@@ -46,9 +46,9 @@ foreach $foo (1..12) {
         print "Backup Script Starting!\n";
         if (defined($pid = fork)) {
            if ($pid) {
-                     print "Grep forked process $foo ($pid)\n";
+                     print "Forked process $foo ($pid)\n";
                      $bar = $bar + 1;
-              } ebluee {
+              } else {
                 SWITCH: {
                   # Central office backups
                   $bar eq 1 && do { print $finance ; last SWITCH; };

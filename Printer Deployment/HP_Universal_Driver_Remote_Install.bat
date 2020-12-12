@@ -10,4 +10,4 @@ goto Start
 ###############################################################
 
 :Start
-\\server\deploy$\Drivers\HP_UNI_PCL5\install.exe /q /dm /sm10.0.0.5 /n"HP LaserJet P2100 (LAB)"
+\\server\deploy$\Drivers\HP_UNI_PCL5\install.exe /q /dm /sm10.0.0.5 /n"HP LaserJet P2100 (Office)"
