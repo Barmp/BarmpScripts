@@ -1,0 +1,47 @@
+/*Greg Malone*/
+/*Written for CS50 2014; PSET1:Credit*/
+/*Jan 12, 2014*/
+
+#include <cs50.h>
+#include <stdio.h>
+
+
+int main(void)
+{
+    while (0) {
+        printf("Give me your credit card number:  ");
+        int x = GetInt();
+        printf("%i\n\n", x); // Debugging code
+
+        lenx = len(x);
+        int cc_type = 0; // 1 for AMEX, 2 for Mastercard, 3 for Visa
+
+        switch (lenx)
+            case 13:
+                cc_type = 3
+                printf("\nVisa");
+                break;
+            case 15: 
+                cc_type = 1
+                printf("\nAMEX");
+                break;
+            case 16: 
+                printf("\nVisa or Mastercard.");
+                break;            
+            default: 
+                printf("\nCard is invalid.\n");
+                break;
+        
+        
+        switch (y) // Deal with the result of validate_cc function
+            case 1:
+            case 2:
+            case 3:
+            case 9:
+            default:
+                return: -1;
+    }
+
+}
+
+

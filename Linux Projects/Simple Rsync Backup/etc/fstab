@@ -1,0 +1,43 @@
+# /etc/fstab: static file system information.
+#
+#############################################################################
+#
+# Remote file shares are mounted to enable this system to perform file level
+#   backups of data in our remote sites and headquarters. The HQ file shares
+#   are separated out by drive letter, but backed up to the one Rsync target 
+#   with subfolders separating the sites.
+#
+# Site servers are largely identical, Violet site is a single server remote 
+#   office with just a domain controller.
+#
+# Backup NAS device will store the files backed up via RSYNC. The rsyncd.conf
+#   file has configuration details to separate the backups into site specific
+#   folders.
+#
+#############################################################################
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+proc            /proc           proc    defaults        0       0
+
+# HQ File Shares
+#
+//hq/f$ 	/mnt/windows/HQ/finance cifs sec=ntlmv2i,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//hq/g$  	/mnt/windows/HQ/transport cifs sec=ntlmv2i,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//hq/h$  	/mnt/windows/HQ/public cifs sec=ntlmv2i,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//hq/i$  	/mnt/windows/HQ/facilities cifs sec=ntlmv2i,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//hq/j$ 	/mnt/windows/HQ/production cifs sec=ntlmv2i,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+
+# Site Servers
+#
+//red-srvr-data01/e$/Shares  /mnt/Windows/red-srvr-data01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//orange-srvr-data01/e$/Shares /mnt/Windows/orange-srvr-data01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//yellow-srvr-data01/e$/Shares /mnt/Windows/yellow-srvr-data01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//green-srvr-data01/e$/Shares /mnt/Windows/green-srvr-data01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//blue-srvr-data01/e$/Shares /mnt/Windows/blue-srvr-data01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//indego-srvr-data01/e$/Shares /mnt/Windows/indego-srvr-data01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+//violet-srvr-dc01/e$/Shares /mnt/Windows/violet-srvr-dc01 cifs sec=ntlmv2,rw,credentials=/root/.smbcredentials,iocharset=utf8,file_mode=0777,dir_mode=0777 0 0
+
+# Backup NAS device
+#
+//10.0.0.40/share /backups cifs rw,credentials=/root/.smbcredentials,auto 0 0
+
